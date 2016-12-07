@@ -1,0 +1,21 @@
+<h3><%= @user.name %></h3>
+<p><%= @user.email + " " + @user.age.to_s %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<% @eventsOwned.each do |event| %>
+    <tr>
+      <td><%= event.title %></td>
+      <td><%= event.location %></td>
+      <td><a href="/events/<%= event.id %>">View Event</a></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
