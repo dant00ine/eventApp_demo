@@ -3,5 +3,5 @@ class Event < ActiveRecord::Base
   has_many :members
   has_many :users, through: :members # => joining users
 
-  validates :title, :place, presence: true, length: {minimum: 5}
+  validates :title, :location, presence: true, length: {minimum: 5}
 end
