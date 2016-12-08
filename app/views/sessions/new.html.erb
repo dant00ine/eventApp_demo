@@ -1,0 +1,22 @@
+<h1>Login</h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <ul>
+      <li class="alert alert-danger"><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<form action="/sessions/create" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label> Email
+    <input type="text" name="email">
+  </label>
+  <label> Password
+    <input type="password" name="password">
+  </label>
+  <input type="submit" value="Login">
+</form>
+
+<a href="/register">Register Here</a>

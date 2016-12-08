@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :members # => Owning
   has_many :events, through: :members  # => Joining
+  has_many :comments
+  has_many :comments, as: :commentable
 
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 

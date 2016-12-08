@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="container">
+    <nav>
+      <a href="/events">All Events</a> |
+      <a href="/users">All Users</a> |
+      <form action="/logout" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="btn btn-danger" value="Logout">
+      </form>
+    </nav>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

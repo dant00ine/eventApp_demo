@@ -8,11 +8,23 @@ Rails.application.routes.draw do
 
   # "eventap.com/" (root)
 
-  root 'events#index'
-  get '/events', to: 'events#index'
-  get '/events/:id', to: 'events#show'
+  # resources :users
 
+  root 'sessions#new'
+
+  get '/login', to: 'sessions#new'
+  post '/sessions/create', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  get '/events', to: 'events#index'
+  get '/events/new', to: 'events#new'
+  get '/events/:id', to: 'events#show'
+  post '/events/create', to: 'events#create'
+
+  get '/users', to: 'users#index'
+  get 'register', to: 'users#new'
   get '/users/:id', to: 'users#show'
+  post '/users/create', to: 'users#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

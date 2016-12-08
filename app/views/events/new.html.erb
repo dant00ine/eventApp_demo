@@ -1,2 +1,19 @@
 <h1>Events#new</h1>
 <p>Find me in app/views/events/new.html.erb</p>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p class="alert alert-danger"><%= error %></p>
+  <% end %>
+<% end %>
+
+<form action="/events/create" method="post">
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+  <label> Title
+    <input type="text" name="title" value="">
+  </label>
+  <label> Location
+    <input type="text" name="location" value="">
+  </label>
+  <input type="submit" value="Submit">
+</form>
