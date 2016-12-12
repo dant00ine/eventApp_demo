@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # "eventap.com/" (root)
 
   # resources :users
-
   root 'sessions#new'
 
   get '/login', to: 'sessions#new'
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
   get 'register', to: 'users#new'
   get '/users/:id', to: 'users#show'
   post '/users/create', to: 'users#create'
+  get '/users/edit/:id', to: 'users#edit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

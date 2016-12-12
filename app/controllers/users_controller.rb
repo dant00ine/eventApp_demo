@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_correct_user, only: [:edit]
+  before_action :require_login, except: [:new]
   def index
     @allUsers = User.all
   end
