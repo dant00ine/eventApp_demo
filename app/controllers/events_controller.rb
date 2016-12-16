@@ -6,10 +6,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @members = User.joins(:members).where("members.event_id = ?", @event.id)
+    # @members = User.joins(:members).where("members.event_id = ?", @event.id)
+    @event.users
   end
 
   def new
+    # render "new"  --> by default
   end
 
   def create
