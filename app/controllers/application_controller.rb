@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
+    puts "required login"
     if session[:user_id] == nil
       redirect_to "/login"
     end
